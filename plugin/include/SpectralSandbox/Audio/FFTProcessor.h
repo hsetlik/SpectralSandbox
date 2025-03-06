@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Common.h"
-#include <juce_dsp/juce_dsp.h>
+#include "Util.h"
 #include "juce_core/system/juce_PlatformDefs.h"
 
 typedef std::unique_ptr<juce::dsp::FFT> fft_core_t;

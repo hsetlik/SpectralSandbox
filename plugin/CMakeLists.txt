@@ -33,8 +33,10 @@ target_sources(${PROJECT_NAME}
 
         ${INCLUDE_DIR}/Audio/FFTProcessor.h
         ${INCLUDE_DIR}/Audio/Util.h
+        ${INCLUDE_DIR}/Audio/LevelMeter.h
         source/FFTProcessor.cpp
         source/Util.cpp
+        source/LevelMeter.cpp
 )
 
 # Sets the include directories of the plugin project.

@@ -3,6 +3,8 @@
 #include "../Common.h"
 #include <juce_dsp/juce_dsp.h>
 
+#define SEARCH_NEAREST_BIN
+
 // Spectral math stuff ========================================================
 namespace spec {
 // get the nearest FFT bin index for a given frequency in hz
