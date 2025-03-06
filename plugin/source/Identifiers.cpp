@@ -1,4 +1,4 @@
-#include "YourPluginName/Identifiers.h"
+#include "SpectralSandbox/Identifiers.h"
 
 apvts::ParameterLayout ID::getParameterLayout() {
   apvts::ParameterLayout layout;

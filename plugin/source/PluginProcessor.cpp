@@ -1,9 +1,9 @@
-#include "YourPluginName/PluginProcessor.h"
+#include "SpectralSandbox/PluginProcessor.h"
 
-#include "YourPluginName/Identifiers.h"
-#include "YourPluginName/PluginEditor.h"
+#include "SpectralSandbox/Identifiers.h"
+#include "SpectralSandbox/PluginEditor.h"
 namespace audio_plugin {
-YourPluginNameAudioProcessor::YourPluginNameAudioProcessor()
+SpectralSandboxAudioProcessor::SpectralSandboxAudioProcessor()
     : AudioProcessor(
           BusesProperties()
 #if !JucePlugin_IsMidiEffect
@@ -13,16 +13,16 @@ YourPluginNameAudioProcessor::YourPluginNameAudioProcessor()
               .withOutput("Output", juce::AudioChannelSet::stereo(), true)
 #endif
               ),
-      tree(*this, nullptr, ID::YourPluginName_state, ID::getParameterLayout()) {
+      tree(*this, nullptr, ID::SpectralSandbox_state, ID::getParameterLayout()) {
 }
 
-YourPluginNameAudioProcessor::~YourPluginNameAudioProcessor() {}
+SpectralSandboxAudioProcessor::~SpectralSandboxAudioProcessor() {}
 
-const juce::String YourPluginNameAudioProcessor::getName() const {
+const juce::String SpectralSandboxAudioProcessor::getName() const {
   return JucePlugin_Name;
 }
 
-bool YourPluginNameAudioProcessor::acceptsMidi() const {
+bool SpectralSandboxAudioProcessor::acceptsMidi() const {
 #if JucePlugin_WantsMidiInput
   return true;
 #else
@@ -30,7 +30,7 @@ bool YourPluginNameAudioProcessor::acceptsMidi() const {
 #endif
 }
 
-bool YourPluginNameAudioProcessor::producesMidi() const {
+bool SpectralSandboxAudioProcessor::producesMidi() const {
 #if JucePlugin_ProducesMidiOutput
   return true;
 #else
@@ -38,7 +38,7 @@ bool YourPluginNameAudioProcessor::producesMidi() const {
 #endif
 }
 
-bool YourPluginNameAudioProcessor::isMidiEffect() const {
+bool SpectralSandboxAudioProcessor::isMidiEffect() const {
 #if JucePlugin_IsMidiEffect
   return true;
 #else
@@ -47,49 +47,49 @@ bool YourPluginNameAudioProcessor::isMidiEffect() const {
 #endif
 }
 
-double YourPluginNameAudioProcessor::getTailLengthSeconds() const {
+double SpectralSandboxAudioProcessor::getTailLengthSeconds() const {
   return 0.0;
 }
 
-int YourPluginNameAudioProcessor::getNumPrograms() {
+int SpectralSandboxAudioProcessor::getNumPrograms() {
   return 1;  // NB: some hosts don't cope very well if you tell them there are 0
   // programs, so this should be at least 1, even if you're not
   // really implementing programs.
 }
 
-int YourPluginNameAudioProcessor::getCurrentProgram() {
+int SpectralSandboxAudioProcessor::getCurrentProgram() {
   return 0;
 }
 
-void YourPluginNameAudioProcessor::setCurrentProgram(int index) {
+void SpectralSandboxAudioProcessor::setCurrentProgram(int index) {
   juce::ignoreUnused(index);
 }
 
-const juce::String YourPluginNameAudioProcessor::getProgramName(int index) {
+const juce::String SpectralSandboxAudioProcessor::getProgramName(int index) {
   juce::ignoreUnused(index);
 
   return {};
 }
 
-void YourPluginNameAudioProcessor::changeProgramName(
+void SpectralSandboxAudioProcessor::changeProgramName(
     int index,
     const juce::String& newName) {
   juce::ignoreUnused(index, newName);
 }
 
-void YourPluginNameAudioProcessor::prepareToPlay(double sampleRate,
+void SpectralSandboxAudioProcessor::prepareToPlay(double sampleRate,
                                                  int samplesPerBlock) {
   // Use this method as the place to do any pre-playback
   // initialisation that you need..
   juce::ignoreUnused(sampleRate, samplesPerBlock);
 }
 
-void YourPluginNameAudioProcessor::releaseResources() {
+void SpectralSandboxAudioProcessor::releaseResources() {
   // When playback stops, you can use this as an opportunity to free up any
   // spare memory, etc.
 }
 
-bool YourPluginNameAudioProcessor::isBusesLayoutSupported(
+bool SpectralSandboxAudioProcessor::isBusesLayoutSupported(
     const BusesLayout& layouts) const {
 #if JucePlugin_IsMidiEffect
   juce::ignoreUnused(layouts);
@@ -111,7 +111,7 @@ bool YourPluginNameAudioProcessor::isBusesLayoutSupported(
 #endif
 }
 
-void YourPluginNameAudioProcessor::processBlock(
+void SpectralSandboxAudioProcessor::processBlock(
     juce::AudioBuffer<float>& buffer,
     juce::MidiBuffer& midiMessages) {
   juce::ignoreUnused(midiMessages);
@@ -141,15 +141,15 @@ void YourPluginNameAudioProcessor::processBlock(
   }
 }
 
-bool YourPluginNameAudioProcessor::hasEditor() const {
+bool SpectralSandboxAudioProcessor::hasEditor() const {
   return true;  // (change this to false if you choose to not supply an editor)
 }
 
-juce::AudioProcessorEditor* YourPluginNameAudioProcessor::createEditor() {
-  return new YourPluginNameProcessorEditor(*this);
+juce::AudioProcessorEditor* SpectralSandboxAudioProcessor::createEditor() {
+  return new SpectralSandboxProcessorEditor(*this);
 }
 
-void YourPluginNameAudioProcessor::getStateInformation(
+void SpectralSandboxAudioProcessor::getStateInformation(
 
     juce::MemoryBlock& destData) {
   // You should use this method to store your parameters in the memory block.
@@ -158,7 +158,7 @@ void YourPluginNameAudioProcessor::getStateInformation(
   juce::ignoreUnused(destData);
 }
 
-void YourPluginNameAudioProcessor::setStateInformation(const void* data,
+void SpectralSandboxAudioProcessor::setStateInformation(const void* data,
                                                        int sizeInBytes) {
   // You should use this method to restore your parameters from this memory
   // block, whose contents will have been created by the getStateInformation()
@@ -170,5 +170,5 @@ void YourPluginNameAudioProcessor::setStateInformation(const void* data,
 // This creates new instances of the plugin.
 // This function definition must be in the global namespace.
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter() {
-  return new audio_plugin::YourPluginNameAudioProcessor();
+  return new audio_plugin::SpectralSandboxAudioProcessor();
 }
