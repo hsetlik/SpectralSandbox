@@ -21,16 +21,20 @@ juce_add_plugin(${PROJECT_NAME}
 # Sets the source files of the plugin project.
 target_sources(${PROJECT_NAME}
     PRIVATE
-        source/FFTProcessor.cpp
         source/Identifiers.cpp
         source/Common.cpp
         source/PluginEditor.cpp
         source/PluginProcessor.cpp
-        ${INCLUDE_DIR}/Audio/FFTProcessor.h
         ${INCLUDE_DIR}/Identifiers.h
         ${INCLUDE_DIR}/Common.h
         ${INCLUDE_DIR}/PluginEditor.h
         ${INCLUDE_DIR}/PluginProcessor.h
+
+
+        ${INCLUDE_DIR}/Audio/FFTProcessor.h
+        ${INCLUDE_DIR}/Audio/Util.h
+        source/FFTProcessor.cpp
+        source/Util.cpp
 )
 
 # Sets the include directories of the plugin project.
